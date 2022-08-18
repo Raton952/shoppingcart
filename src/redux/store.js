@@ -8,10 +8,19 @@ const myLogger = (store) =>(next) => (action)=>{
 
     const upComingStep = [action].reduce(rootReducer,store.getState())
 
-    // console.log(`Upcoming: ${JSON.stringify(upComingStep)}`);
+    // console.log(`Upcoming: ${JSON.stringify(upComingStep.cartItem)}`);
+    console.log(upComingStep.cartItem);
+    const item = upComingStep.cartItem.products.find(
+        product => product.id === action.payload.id,
+    );
+    console.log("item",item);
 
+    if(item.qty>=0){
+        return next(action)
+    }
 
-    return next(action)
+    
+
 }
 
 const store = createStore(rootReducer,composeWithDevTools(applyMiddleware(myLogger)))
