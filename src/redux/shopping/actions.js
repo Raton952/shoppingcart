@@ -7,6 +7,7 @@ export const addToCart = (value) =>{
     }
 }
 export const removeToCart = (value) =>{
+   
     return{
         type:REMOVE_TO_CART,
         payload:value

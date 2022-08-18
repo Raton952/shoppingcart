@@ -9,14 +9,14 @@ function App() {
   const dispatch = useDispatch()
 
   const handleAddToCart = (id)=>{
-    console.log(id);
+
     const item = select.products.find(item=> item.id === id)
     dispatch(addToCart(item))
   
     
   }
   const handleRemoveToCart = (id)=>{
-    console.log(id);
+
     const item = select.products.find(item=> item.id === id)
     dispatch(removeToCart(item))
   
